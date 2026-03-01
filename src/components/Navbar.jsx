@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 
 
@@ -10,6 +10,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [technologiesOpen, setTechnologiesOpen] = useState(false);
+  const location = useLocation();
 
   const services = [
     { name: "Custom Development", href: "#services" },
@@ -37,6 +38,11 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+  useEffect(() => {
+  setMobileMenuOpen(false);
+  setServicesOpen(false);
+  setTechnologiesOpen(false);
+}, [location]);
 
   const navItemClass =
     "flex items-center justify-between text-white text-base font-medium py-2";
@@ -195,8 +201,8 @@ export default function Navbar() {
                 </a>
               ))}
 
-            <Link to="/" className="text-white hover:text-blue-300">
-  Home
+            <Link to="/portfolio" className=" block text-white py-1 font-semibold hover:text-blue-300">
+  Portfolio
 </Link>
              <Link to="/career" className=" block text-white py-1 font-semibold hover:text-blue-300">
               Career
