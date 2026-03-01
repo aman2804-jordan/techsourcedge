@@ -56,7 +56,7 @@ function App() {
   return () => document.removeEventListener("keydown", blockKeys);
 }, []);
 
-
+console.log("TEST DEPLOY CHECK");
   return (
     <Router>
       <div className="min-h-screen bg-gray-50">
