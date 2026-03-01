@@ -170,7 +170,7 @@ export default function JobApplication() {
         formPayload.append(key, formData[key]);
       });
 
-      const response = await fetch(`${API_URL}/apply`, {
+      const response = await fetch(`${API_URL}/api/apply`, {
   method: 'POST',
   body: formPayload
 });
