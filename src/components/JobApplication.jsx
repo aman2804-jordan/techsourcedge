@@ -42,26 +42,25 @@ export default function JobApplication() {
     }
   ];
 
+  const educationOptions = ['High School',"Bachelor's Degree","Master's Degree",'Ph.D.','Diploma','Other'];
+  const experienceOptions = ['Fresher','0-1 years','1-3 years','3-5 years','5-7 years','7-10 years','10+ years'];
+  const noticePeriodOptions = ['Immediate','15 days','1 month','2 months','3 months','More than 3 months'];
+
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 5000);
-
     return () => clearInterval(timer);
   }, []);
+
+  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
+  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value
-    }));
-
-    setErrors((prev) => ({
-      ...prev,
-      [name]: ''
-    }));
+    setFormData(prev => ({ ...prev, [name]: value }));
+    setErrors(prev => ({ ...prev, [name]: '' }));
   };
 
   const handleFileChange = (e) => {
@@ -69,17 +68,12 @@ export default function JobApplication() {
     if (!file) return;
 
     if (file.size > 5000000) {
-      setErrors((prev) => ({
-        ...prev,
-        resume: 'File size should be less than 5MB'
-      }));
+      setErrors(prev => ({ ...prev, resume: 'File size should be less than 5MB' }));
       return;
     }
 
-    setFormData((prev) => ({
-      ...prev,
-      resume: file
-    }));
+    setFormData(prev => ({ ...prev, resume: file }));
+    setErrors(prev => ({ ...prev, resume: '' }));
   };
 
   const validateForm = () => {
@@ -87,7 +81,14 @@ export default function JobApplication() {
 
     if (!formData.fullName.trim()) newErrors.fullName = 'Full name is required';
     if (!formData.email.trim()) newErrors.email = 'Email is required';
-    if (!formData.phone.trim()) newErrors.phone = 'Phone number is required';
+    if (!formData.phone.trim()) newErrors.phone = 'Phone is required';
+    if (!formData.education) newErrors.education = 'Education is required';
+    if (!formData.role.trim()) newErrors.role = 'Role is required';
+    if (!formData.yearOfPassout.trim()) newErrors.yearOfPassout = 'Year is required';
+    if (!formData.experience) newErrors.experience = 'Experience is required';
+    if (!formData.expectedCTC.trim()) newErrors.expectedCTC = 'Expected CTC is required';
+    if (!formData.location.trim()) newErrors.location = 'Location is required';
+    if (!formData.noticePeriod) newErrors.noticePeriod = 'Notice period is required';
     if (!formData.resume) newErrors.resume = 'Resume is required';
 
     return newErrors;
@@ -104,8 +105,7 @@ export default function JobApplication() {
 
     try {
       const formPayload = new FormData();
-
-      Object.keys(formData).forEach((key) => {
+      Object.keys(formData).forEach(key => {
         formPayload.append(key, formData[key]);
       });
 
@@ -114,31 +114,18 @@ export default function JobApplication() {
         body: formPayload
       });
 
-      const result = await response.json();
-
-      if (!response.ok) {
-        throw new Error(result.message || "Submission failed");
-      }
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.message || "Submission failed");
 
       setSubmitted(true);
+      setErrors({});
       setFormData({
-        fullName: '',
-        email: '',
-        phone: '',
-        education: '',
-        role: '',
-        yearOfPassout: '',
-        experience: '',
-        currentCTC: '',
-        expectedCTC: '',
-        location: '',
-        noticePeriod: '',
-        skills: '',
-        resume: null
+        fullName:'',email:'',phone:'',education:'',role:'',yearOfPassout:'',
+        experience:'',currentCTC:'',expectedCTC:'',location:'',
+        noticePeriod:'',skills:'',resume:null
       });
 
     } catch (error) {
-      console.error("Submission Error:", error.message);
       alert(error.message);
     }
   };
@@ -159,66 +146,59 @@ export default function JobApplication() {
               backgroundSize: 'cover',
               backgroundPosition: 'center'
             }}
-          >
-            <div className="flex items-center justify-center h-full text-white text-center px-4">
-              <div>
-                <h1 className="text-4xl md:text-6xl font-bold mb-4">
-                  {slide.title}
-                </h1>
-                <p className="text-xl md:text-2xl">
-                  {slide.description}
-                </p>
-              </div>
-            </div>
-          </div>
+          />
         ))}
       </div>
 
-      {/* Simple Form */}
-      <div className="max-w-3xl mx-auto p-8 bg-white shadow-lg rounded-lg mt-10">
-        <h2 className="text-2xl font-bold mb-6">Job Application</h2>
+      {/* Form */}
+      <div className="max-w-4xl mx-auto px-4 py-16">
+        <div className="bg-white rounded-lg shadow-lg p-8">
+          <h2 className="text-3xl font-bold text-center mb-6">Job Application Form</h2>
 
-        {submitted && (
-          <div className="bg-green-100 text-green-700 p-3 mb-4 rounded">
-            Application Submitted Successfully!
-          </div>
-        )}
+          {submitted && (
+            <div className="mb-6 p-4 bg-green-100 text-green-700 rounded-lg">
+              Application Submitted Successfully!
+            </div>
+          )}
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <input
-            type="text"
-            name="fullName"
-            placeholder="Full Name"
-            value={formData.fullName}
-            onChange={handleChange}
-            className="w-full border p-2 rounded"
-          />
-          {errors.fullName && <p className="text-red-500">{errors.fullName}</p>}
+          <form onSubmit={handleSubmit} className="grid md:grid-cols-2 gap-4">
 
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            value={formData.email}
-            onChange={handleChange}
-            className="w-full border p-2 rounded"
-          />
-          {errors.email && <p className="text-red-500">{errors.email}</p>}
+            <input name="fullName" placeholder="Full Name" value={formData.fullName} onChange={handleChange} className="border p-2 rounded"/>
+            <input name="email" placeholder="Email" value={formData.email} onChange={handleChange} className="border p-2 rounded"/>
+            <input name="phone" placeholder="Phone" value={formData.phone} onChange={handleChange} className="border p-2 rounded"/>
 
-          <input
-            type="file"
-            onChange={handleFileChange}
-            className="w-full"
-          />
-          {errors.resume && <p className="text-red-500">{errors.resume}</p>}
+            <select name="education" value={formData.education} onChange={handleChange} className="border p-2 rounded">
+              <option value="">Select Education</option>
+              {educationOptions.map(opt => <option key={opt}>{opt}</option>)}
+            </select>
 
-          <button
-            type="submit"
-            className="bg-black text-white px-6 py-2 rounded hover:bg-gray-800"
-          >
-            Submit Application
-          </button>
-        </form>
+            <input name="role" placeholder="Applying Role" value={formData.role} onChange={handleChange} className="border p-2 rounded"/>
+            <input name="yearOfPassout" placeholder="Year of Passout" value={formData.yearOfPassout} onChange={handleChange} className="border p-2 rounded"/>
+
+            <select name="experience" value={formData.experience} onChange={handleChange} className="border p-2 rounded">
+              <option value="">Select Experience</option>
+              {experienceOptions.map(opt => <option key={opt}>{opt}</option>)}
+            </select>
+
+            <input name="currentCTC" placeholder="Current CTC" value={formData.currentCTC} onChange={handleChange} className="border p-2 rounded"/>
+            <input name="expectedCTC" placeholder="Expected CTC" value={formData.expectedCTC} onChange={handleChange} className="border p-2 rounded"/>
+            <input name="location" placeholder="Preferred Location" value={formData.location} onChange={handleChange} className="border p-2 rounded"/>
+
+            <select name="noticePeriod" value={formData.noticePeriod} onChange={handleChange} className="border p-2 rounded">
+              <option value="">Select Notice Period</option>
+              {noticePeriodOptions.map(opt => <option key={opt}>{opt}</option>)}
+            </select>
+
+            <textarea name="skills" placeholder="Skills" value={formData.skills} onChange={handleChange} className="border p-2 rounded md:col-span-2"/>
+
+            <input type="file" onChange={handleFileChange} className="md:col-span-2"/>
+            
+            <button type="submit" className="bg-black text-white py-2 rounded md:col-span-2">
+              Submit Application
+            </button>
+
+          </form>
+        </div>
       </div>
     </div>
   );
