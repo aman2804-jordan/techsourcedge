@@ -237,20 +237,22 @@ export default function JobApplication() {
         ))}
 
         {/* Prev Button */}
-        <button
-          onClick={() => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)}
-          className="absolute left-4 top-1/2 -translate-y-1/2 bg-black bg-opacity-30 hover:bg-opacity-60 text-white text-3xl rounded-full w-10 h-10 flex items-center justify-center transition"
-        >
-          &#8249;
-        </button>
+        <button 
+        onClick={prevSlide} 
+        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 p-2 rounded-full transition"
+        aria-label="Previous slide"
+      >
+        <ChevronLeft className="text-white" size={24} />
+      </button>
 
         {/* Next Button */}
-        <button
-          onClick={() => setCurrentSlide((prev) => (prev + 1) % slides.length)}
-          className="absolute right-4 top-1/2 -translate-y-1/2 bg-black bg-opacity-30 hover:bg-opacity-60 text-white text-3xl rounded-full w-10 h-10 flex items-center justify-center transition"
-        >
-          &#8250;
-        </button>
+        <button 
+        onClick={nextSlide} 
+        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 p-2 rounded-full transition"
+        aria-label="Next slide"
+      >
+        <ChevronRight className="text-white" size={24} />
+      </button>
 
         {/* Dot Indicators */}
         <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
