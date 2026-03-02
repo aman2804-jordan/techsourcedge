@@ -71,7 +71,6 @@ export default function JobApplication() {
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    // Phone: only allow digits, max 10
     if (name === 'phone') {
       const digitsOnly = value.replace(/\D/g, '').slice(0, 10);
       setFormData(prev => ({ ...prev, phone: digitsOnly }));
@@ -79,7 +78,6 @@ export default function JobApplication() {
       return;
     }
 
-    // Year of passout: only digits
     if (name === 'yearOfPassout') {
       const digitsOnly = value.replace(/\D/g, '').slice(0, 4);
       setFormData(prev => ({ ...prev, yearOfPassout: digitsOnly }));
@@ -100,7 +98,11 @@ export default function JobApplication() {
       return;
     }
 
-    const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+    const allowedTypes = [
+      'application/pdf',
+      'application/msword',
+      'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+    ];
     if (!allowedTypes.includes(file.type)) {
       setErrors(prev => ({ ...prev, resume: 'Only PDF or Word documents allowed' }));
       return;
@@ -196,7 +198,6 @@ export default function JobApplication() {
     }
   };
 
-  // Shared input class builder
   const inputClass = (name) =>
     `border-2 p-2 rounded w-full outline-none transition-colors duration-200 ${
       focusedField === name
@@ -207,11 +208,66 @@ export default function JobApplication() {
     }`;
 
   const labelClass = "block text-sm font-medium text-gray-700 mb-1";
-
   const RequiredMark = () => <span className="text-red-500 ml-1">*</span>;
 
   return (
     <div className="min-h-screen bg-gray-50">
+
+      {/* CAROUSEL */}
+      <div className="relative w-full h-64 md:h-96 overflow-hidden">
+        {slides.map((slide, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-1000 ${
+              index === currentSlide ? 'opacity-100' : 'opacity-0'
+            }`}
+          >
+            <img
+              src={slide.image}
+              alt={slide.title}
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col items-center justify-center text-white text-center px-4">
+              <h1 className="text-3xl md:text-5xl font-bold mb-3 drop-shadow-lg">
+                {slide.title}
+              </h1>
+              <p className="text-lg md:text-xl drop-shadow-md">{slide.description}</p>
+            </div>
+          </div>
+        ))}
+
+        {/* Prev Button */}
+        <button
+          onClick={() => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)}
+          className="absolute left-4 top-1/2 -translate-y-1/2 bg-white bg-opacity-30 hover:bg-opacity-60 text-white text-3xl rounded-full w-10 h-10 flex items-center justify-center transition"
+        >
+          &#8249;
+        </button>
+
+        {/* Next Button */}
+        <button
+          onClick={() => setCurrentSlide((prev) => (prev + 1) % slides.length)}
+          className="absolute right-4 top-1/2 -translate-y-1/2 bg-white bg-opacity-30 hover:bg-opacity-60 text-white text-3xl rounded-full w-10 h-10 flex items-center justify-center transition"
+        >
+          &#8250;
+        </button>
+
+        {/* Dot Indicators */}
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                index === currentSlide ? 'bg-white scale-125' : 'bg-white bg-opacity-50'
+              }`}
+            />
+          ))}
+        </div>
+      </div>
+      {/* END CAROUSEL */}
+
+      {/* FORM */}
       <div className="max-w-4xl mx-auto px-4 py-16">
         <div className="bg-white rounded-lg shadow-lg p-8">
           <h2 className="text-3xl font-bold text-center mb-6">Job Application Form</h2>
@@ -384,7 +440,7 @@ export default function JobApplication() {
               {errors.expectedCTC && <p className="text-red-500 text-xs mt-1">{errors.expectedCTC}</p>}
             </div>
 
-            {/* Preferred Location (not mandatory) */}
+            {/* Preferred Location */}
             <div>
               <label className={labelClass}>Preferred Location</label>
               <input
@@ -469,6 +525,7 @@ export default function JobApplication() {
           </p>
         </div>
       </div>
+
     </div>
   );
 }
