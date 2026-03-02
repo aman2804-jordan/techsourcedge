@@ -513,13 +513,8 @@ export default function JobApplication() {
             </div>
 
             {/* Submit Button */}
-            <button
-              type="submit"
-              className={`py-3 rounded md:col-span-2 font-semibold text-white transition-colors duration-300 ${
-                submitSuccess ? 'bg-green-500 hover:bg-green-600' : 'bg-black hover:bg-gray-800'
-              }`}
-            >
-              {submitSuccess ? '✅ Application Submitted!' : 'Submit Application'}
+            <button type="submit" className="bg-black text-white py-2 rounded md:col-span-2">
+              Submit Application
             </button>
 
           </form>
