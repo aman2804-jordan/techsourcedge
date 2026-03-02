@@ -211,10 +211,10 @@ export default function JobApplication() {
   const RequiredMark = () => <span className="text-red-500 ml-1">*</span>;
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-black">
 
       {/* CAROUSEL */}
-      <div className="relative w-full h-64 md:h-96 overflow-hidden">
+      <div className="relative h-[90vh] overflow-hidden">
         {slides.map((slide, index) => (
           <div
             key={index}
@@ -239,7 +239,7 @@ export default function JobApplication() {
         {/* Prev Button */}
         <button
           onClick={() => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)}
-          className="absolute left-4 top-1/2 -translate-y-1/2 bg-white bg-opacity-30 hover:bg-opacity-60 text-white text-3xl rounded-full w-10 h-10 flex items-center justify-center transition"
+          className="absolute left-4 top-1/2 -translate-y-1/2 bg-black bg-opacity-30 hover:bg-opacity-60 text-white text-3xl rounded-full w-10 h-10 flex items-center justify-center transition"
         >
           &#8249;
         </button>
@@ -247,7 +247,7 @@ export default function JobApplication() {
         {/* Next Button */}
         <button
           onClick={() => setCurrentSlide((prev) => (prev + 1) % slides.length)}
-          className="absolute right-4 top-1/2 -translate-y-1/2 bg-white bg-opacity-30 hover:bg-opacity-60 text-white text-3xl rounded-full w-10 h-10 flex items-center justify-center transition"
+          className="absolute right-4 top-1/2 -translate-y-1/2 bg-black bg-opacity-30 hover:bg-opacity-60 text-white text-3xl rounded-full w-10 h-10 flex items-center justify-center transition"
         >
           &#8250;
         </button>
@@ -259,7 +259,7 @@ export default function JobApplication() {
               key={index}
               onClick={() => setCurrentSlide(index)}
               className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                index === currentSlide ? 'bg-white scale-125' : 'bg-white bg-opacity-50'
+                index === currentSlide ? 'bg-black scale-125' : 'bg-black bg-opacity-50'
               }`}
             />
           ))}
