@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import API_URL from "../config/api";
 
 export default function JobApplication() {
+
   const [currentSlide, setCurrentSlide] = useState(0);
+  const fileInputRef = useRef(null); // ✅ added
 
   const [formData, setFormData] = useState({
     fullName: '',
@@ -53,12 +55,8 @@ export default function JobApplication() {
     return () => clearInterval(timer);
   }, []);
 
-  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
-  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-
   const handleChange = (e) => {
     const { name, value } = e.target;
-
     setFormData(prev => ({ ...prev, [name]: value }));
     setErrors(prev => ({ ...prev, [name]: '' }));
   };
@@ -119,11 +117,19 @@ export default function JobApplication() {
 
       setSubmitted(true);
       setErrors({});
+
+      // ✅ Reset state
       setFormData({
-        fullName:'',email:'',phone:'',education:'',role:'',yearOfPassout:'',
-        experience:'',currentCTC:'',expectedCTC:'',location:'',
-        noticePeriod:'',skills:'',resume:null
+        fullName:'', email:'', phone:'', education:'', role:'',
+        yearOfPassout:'', experience:'', currentCTC:'',
+        expectedCTC:'', location:'', noticePeriod:'',
+        skills:'', resume:null
       });
+
+      // ✅ Clear file input manually
+      if (fileInputRef.current) {
+        fileInputRef.current.value = "";
+      }
 
     } catch (error) {
       alert(error.message);
@@ -133,24 +139,6 @@ export default function JobApplication() {
   return (
     <div className="min-h-screen bg-gray-50">
 
-      {/* Carousel */}
-      <div className="relative h-[90vh] overflow-hidden">
-        {slides.map((slide, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
-              index === currentSlide ? 'opacity-100' : 'opacity-0'
-            }`}
-            style={{
-              backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${slide.image})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center'
-            }}
-          />
-        ))}
-      </div>
-
-      {/* Form */}
       <div className="max-w-4xl mx-auto px-4 py-16">
         <div className="bg-white rounded-lg shadow-lg p-8">
           <h2 className="text-3xl font-bold text-center mb-6">Job Application Form</h2>
@@ -191,8 +179,14 @@ export default function JobApplication() {
 
             <textarea name="skills" placeholder="Skills" value={formData.skills} onChange={handleChange} className="border p-2 rounded md:col-span-2"/>
 
-            <input type="file" onChange={handleFileChange} className="md:col-span-2"/>
-            
+            {/* ✅ Updated file input */}
+            <input 
+              type="file" 
+              ref={fileInputRef}
+              onChange={handleFileChange} 
+              className="md:col-span-2"
+            />
+
             <button type="submit" className="bg-black text-white py-2 rounded md:col-span-2">
               Submit Application
             </button>
