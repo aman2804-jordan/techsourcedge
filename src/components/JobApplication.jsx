@@ -212,7 +212,8 @@ export default function JobApplication() {
 
   return (
     <div className="min-h-screen bg-black">
-      {/* Carousel */}
+
+      {/* CAROUSEL */}
       <div className="relative h-[90vh] overflow-hidden">
         {slides.map((slide, index) => (
           <div
@@ -220,45 +221,48 @@ export default function JobApplication() {
             className={`absolute inset-0 transition-opacity duration-1000 ${
               index === currentSlide ? 'opacity-100' : 'opacity-0'
             }`}
-            style={{
-              backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(${slide.image})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center'
-            }}
           >
-            <div className="flex items-center justify-center h-full text-white text-center px-4">
-              <div>
-                <h1 className="text-4xl md:text-6xl font-bold mb-4">{slide.title}</h1>
-                <p className="text-xl md:text-2xl">{slide.description}</p>
-              </div>
+            <img
+              src={slide.image}
+              alt={slide.title}
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col items-center justify-center text-white text-center px-4">
+              <h1 className="text-3xl md:text-5xl font-bold mb-3 drop-shadow-lg">
+                {slide.title}
+              </h1>
+              <p className="text-lg md:text-xl drop-shadow-md">{slide.description}</p>
             </div>
           </div>
         ))}
-        
-        <button 
-          onClick={prevSlide} 
-          className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 p-2 rounded-full transition"
+
+        {/* Prev Button */}
+        <button
+          onClick={() => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length)}
+          className="absolute left-4 top-1/2 -translate-y-1/2 bg-black bg-opacity-30 hover:bg-opacity-60 text-white text-3xl rounded-full w-10 h-10 flex items-center justify-center transition"
         >
-          <ChevronLeft className="text-white" size={24} />
-        </button>
-        <button 
-          onClick={nextSlide} 
-          className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/30 hover:bg-white/50 p-2 rounded-full transition"
-        >
-          <ChevronRight className="text-white" size={24} />
+          &#8249;
         </button>
 
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+        {/* Next Button */}
+        <button
+          onClick={() => setCurrentSlide((prev) => (prev + 1) % slides.length)}
+          className="absolute right-4 top-1/2 -translate-y-1/2 bg-black bg-opacity-30 hover:bg-opacity-60 text-white text-3xl rounded-full w-10 h-10 flex items-center justify-center transition"
+        >
+          &#8250;
+        </button>
+
+        {/* Dot Indicators */}
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
           {slides.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`w-3 h-3 rounded-full transition ${
-                index === currentSlide ? 'bg-white' : 'bg-white/50'
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                index === currentSlide ? 'bg-black scale-125' : 'bg-black bg-opacity-50'
               }`}
             />
           ))}
-    
         </div>
       </div>
       {/* END CAROUSEL */}
