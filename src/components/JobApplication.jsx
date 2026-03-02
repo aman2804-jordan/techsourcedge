@@ -1,12 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import API_URL from "../config/api";
+import React, { useState, useRef } from 'react';
+import { ChevronLeft, ChevronRight, Upload, Send } from 'lucide-react';
+import API_URL from "../config/api";   // ✅ Production API
 
 export default function JobApplication() {
 
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const fileInputRef = useRef(null); // ✅ added
+  const fileInputRef = useRef(null);   // ✅ For clearing file input
 
+  const [currentSlide, setCurrentSlide] = useState(0);
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -25,6 +25,8 @@ export default function JobApplication() {
 
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const slides = [
     {
@@ -44,48 +46,77 @@ export default function JobApplication() {
     }
   ];
 
-  const educationOptions = ['High School',"Bachelor's Degree","Master's Degree",'Ph.D.','Diploma','Other'];
-  const experienceOptions = ['Fresher','0-1 years','1-3 years','3-5 years','5-7 years','7-10 years','10+ years'];
-  const noticePeriodOptions = ['Immediate','15 days','1 month','2 months','3 months','More than 3 months'];
-
-  useEffect(() => {
+  React.useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 5000);
     return () => clearInterval(timer);
-  }, []);
+  }, [slides.length]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-    setErrors(prev => ({ ...prev, [name]: '' }));
+
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+
+    if (errors[name]) {
+      setErrors(prev => ({
+        ...prev,
+        [name]: ''
+      }));
+    }
   };
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
-    if (!file) return;
 
-    if (file.size > 5000000) {
-      setErrors(prev => ({ ...prev, resume: 'File size should be less than 5MB' }));
-      return;
+    if (file) {
+      if (file.size > 5000000) {
+        setErrors(prev => ({
+          ...prev,
+          resume: 'File size should be less than 5MB'
+        }));
+        return;
+      }
+
+      setFormData(prev => ({
+        ...prev,
+        resume: file
+      }));
+
+      if (errors.resume) {
+        setErrors(prev => ({
+          ...prev,
+          resume: ''
+        }));
+      }
     }
-
-    setFormData(prev => ({ ...prev, resume: file }));
-    setErrors(prev => ({ ...prev, resume: '' }));
   };
 
   const validateForm = () => {
     const newErrors = {};
 
-    if (!formData.fullName.trim()) newErrors.fullName = 'Full name is required';
-    if (!formData.email.trim()) newErrors.email = 'Email is required';
-    if (!formData.phone.trim()) newErrors.phone = 'Phone is required';
+    if (!formData.fullName.trim())
+      newErrors.fullName = 'Full name is required';
+
+    if (!formData.email.trim())
+      newErrors.email = 'Email is required';
+    else if (!/\S+@\S+\.\S+/.test(formData.email))
+      newErrors.email = 'Email is invalid';
+
+    if (!formData.phone.trim())
+      newErrors.phone = 'Phone number is required';
+    else if (!/^\d{10}$/.test(formData.phone.replace(/\D/g, '')))
+      newErrors.phone = 'Phone number must be 10 digits';
+
     if (!formData.education) newErrors.education = 'Education is required';
     if (!formData.role.trim()) newErrors.role = 'Role is required';
-    if (!formData.yearOfPassout.trim()) newErrors.yearOfPassout = 'Year is required';
+    if (!formData.yearOfPassout.trim()) newErrors.yearOfPassout = 'Year of passout is required';
     if (!formData.experience) newErrors.experience = 'Experience is required';
     if (!formData.expectedCTC.trim()) newErrors.expectedCTC = 'Expected CTC is required';
-    if (!formData.location.trim()) newErrors.location = 'Location is required';
+    if (!formData.location.trim()) newErrors.location = 'Preferred location is required';
     if (!formData.noticePeriod) newErrors.noticePeriod = 'Notice period is required';
     if (!formData.resume) newErrors.resume = 'Resume is required';
 
@@ -95,101 +126,111 @@ export default function JobApplication() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const validationErrors = validateForm();
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
+    const newErrors = validateForm();
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
       return;
     }
 
+    setLoading(true);
+    setErrorMessage('');
+
     try {
-      const formPayload = new FormData();
+      const submitData = new FormData();
       Object.keys(formData).forEach(key => {
-        formPayload.append(key, formData[key]);
+        submitData.append(key, formData[key]);
       });
 
+      // ✅ Production URL
       const response = await fetch(`${API_URL}/api/apply`, {
         method: 'POST',
-        body: formPayload
+        body: submitData
       });
 
       const data = await response.json();
-      if (!response.ok) throw new Error(data.message || "Submission failed");
 
-      setSubmitted(true);
-      setErrors({});
+      if (response.ok && data.success) {
 
-      // ✅ Reset state
-      setFormData({
-        fullName:'', email:'', phone:'', education:'', role:'',
-        yearOfPassout:'', experience:'', currentCTC:'',
-        expectedCTC:'', location:'', noticePeriod:'',
-        skills:'', resume:null
-      });
+        setSubmitted(true);
 
-      // ✅ Clear file input manually
-      if (fileInputRef.current) {
-        fileInputRef.current.value = "";
+        setFormData({
+          fullName: '',
+          email: '',
+          phone: '',
+          education: '',
+          role: '',
+          yearOfPassout: '',
+          experience: '',
+          currentCTC: '',
+          expectedCTC: '',
+          location: '',
+          noticePeriod: '',
+          skills: '',
+          resume: null
+        });
+
+        // ✅ Proper file reset
+        if (fileInputRef.current) {
+          fileInputRef.current.value = "";
+        }
+
+        setTimeout(() => {
+          setSubmitted(false);
+        }, 5000);
+
+      } else {
+        setErrorMessage(data.message || 'Failed to submit application.');
       }
 
     } catch (error) {
-      alert(error.message);
+      setErrorMessage('Network error. Please try again.');
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div className="min-h-screen bg-gray-50">
 
+      {/* Keep your full carousel JSX here unchanged */}
+
       <div className="max-w-4xl mx-auto px-4 py-16">
         <div className="bg-white rounded-lg shadow-lg p-8">
-          <h2 className="text-3xl font-bold text-center mb-6">Job Application Form</h2>
+
+          <h2 className="text-3xl font-bold text-gray-800 mb-2 text-center">
+            Job Application Form
+          </h2>
 
           {submitted && (
-            <div className="mb-6 p-4 bg-green-100 text-green-700 rounded-lg">
+            <div className="mb-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg">
               Application Submitted Successfully!
             </div>
           )}
 
-          <form onSubmit={handleSubmit} className="grid md:grid-cols-2 gap-4">
+          {errorMessage && (
+            <div className="mb-6 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg">
+              {errorMessage}
+            </div>
+          )}
 
-            <input name="fullName" placeholder="Full Name" value={formData.fullName} onChange={handleChange} className="border p-2 rounded"/>
-            <input name="email" placeholder="Email" value={formData.email} onChange={handleChange} className="border p-2 rounded"/>
-            <input name="phone" placeholder="Phone" value={formData.phone} onChange={handleChange} className="border p-2 rounded"/>
+          <form onSubmit={handleSubmit}>
+            
+            {/* KEEP YOUR ENTIRE BEAUTIFUL FORM JSX BELOW UNCHANGED */}
 
-            <select name="education" value={formData.education} onChange={handleChange} className="border p-2 rounded">
-              <option value="">Select Education</option>
-              {educationOptions.map(opt => <option key={opt}>{opt}</option>)}
-            </select>
+            {/* Just replace file input with this version */}
 
-            <input name="role" placeholder="Applying Role" value={formData.role} onChange={handleChange} className="border p-2 rounded"/>
-            <input name="yearOfPassout" placeholder="Year of Passout" value={formData.yearOfPassout} onChange={handleChange} className="border p-2 rounded"/>
-
-            <select name="experience" value={formData.experience} onChange={handleChange} className="border p-2 rounded">
-              <option value="">Select Experience</option>
-              {experienceOptions.map(opt => <option key={opt}>{opt}</option>)}
-            </select>
-
-            <input name="currentCTC" placeholder="Current CTC" value={formData.currentCTC} onChange={handleChange} className="border p-2 rounded"/>
-            <input name="expectedCTC" placeholder="Expected CTC" value={formData.expectedCTC} onChange={handleChange} className="border p-2 rounded"/>
-            <input name="location" placeholder="Preferred Location" value={formData.location} onChange={handleChange} className="border p-2 rounded"/>
-
-            <select name="noticePeriod" value={formData.noticePeriod} onChange={handleChange} className="border p-2 rounded">
-              <option value="">Select Notice Period</option>
-              {noticePeriodOptions.map(opt => <option key={opt}>{opt}</option>)}
-            </select>
-
-            <textarea name="skills" placeholder="Skills" value={formData.skills} onChange={handleChange} className="border p-2 rounded md:col-span-2"/>
-
-            {/* ✅ Updated file input */}
-            <input 
-              type="file" 
+            <input
+              type="file"
+              id="resume"
+              name="resume"
               ref={fileInputRef}
-              onChange={handleFileChange} 
-              className="md:col-span-2"
+              onChange={handleFileChange}
+              accept=".pdf,.doc,.docx"
+              disabled={loading}
+              className="hidden"
             />
 
-            <button type="submit" className="bg-black text-white py-2 rounded md:col-span-2">
-              Submit Application
-            </button>
+            {/* Keep your styled upload label */}
 
           </form>
         </div>
