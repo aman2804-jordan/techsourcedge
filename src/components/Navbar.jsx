@@ -161,7 +161,8 @@ export default function Navbar() {
         {/* Mobile Menu */}
         {mobileMenuOpen && (
           <div className="md:hidden bg-gray-900 text-white rounded-lg mt-2 p-4 space-y-2">
-            <Link to="/" className="text-white hover:text-blue-300">
+            
+<Link to="/" className=" block text-white py-1 font-semibold hover:text-blue-300">
   Home
 </Link>
 
