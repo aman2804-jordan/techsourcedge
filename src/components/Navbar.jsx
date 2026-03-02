@@ -161,9 +161,9 @@ export default function Navbar() {
         {/* Mobile Menu */}
         {mobileMenuOpen && (
           <div className="md:hidden bg-gray-900 text-white rounded-lg mt-2 p-4 space-y-2">
-            <a href="#aboutus" className={navItemClass}>
-              Home
-            </a>
+            <Link to="/" className="text-white hover:text-blue-300">
+  Home
+</Link>
 
             {/* Mobile Services */}
             <button
