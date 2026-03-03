@@ -75,8 +75,9 @@ export default function JobApplication() {
   useEffect(() => {
   if (submitted) {
     const timer = setTimeout(() => {
-      window.location.reload();
-    }, 5000); // 5 seconds
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      setSubmitted(false);
+    }, 5000);
 
     return () => clearTimeout(timer);
   }
