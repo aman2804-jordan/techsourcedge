@@ -2,11 +2,13 @@ import React, { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import API_URL from "../config/api";
 
+
 export default function JobApplication() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const fileInputRef = useRef(null);
   const [submitSuccess, setSubmitSuccess] = useState(false);
-
+  
+  
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -25,6 +27,7 @@ export default function JobApplication() {
   });
 
   const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [focusedField, setFocusedField] = useState('');
 
@@ -157,7 +160,7 @@ export default function JobApplication() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitSuccess(false);
+    setIsSubmitting(true);;
 
     const validationErrors = validateForm();
     if (Object.keys(validationErrors).length > 0) {
@@ -168,38 +171,39 @@ export default function JobApplication() {
     setSubmitSuccess(true);
 
     try {
-      const formPayload = new FormData();
-      Object.keys(formData).forEach(key => {
-        if (key === 'phone') {
-          formPayload.append('phone', `${formData.countryCode}${formData.phone}`);
-        } else {
-          formPayload.append(key, formData[key]);
-        }
-      });
-
-      const response = await fetch(`${API_URL}/api/apply`, {
-        method: 'POST',
-        body: formPayload
-      });
-
-      const data = await response.json();
-      if (!response.ok) throw new Error(data.message || "Submission failed");
-
-      setSubmitted(true);
-      setErrors({});
-
-      setFormData({
-        fullName: '', email: '', countryCode: '+91', phone: '', education: '',
-        role: '', yearOfPassout: '', experience: '', currentCTC: '',
-        expectedCTC: '', location: '', noticePeriod: '', skills: '', resume: null
-      });
-
-      if (fileInputRef.current) fileInputRef.current.value = "";
-
-    } catch (error) {
-      setSubmitSuccess(false);
-      alert(error.message);
+  const formPayload = new FormData();
+  Object.keys(formData).forEach(key => {
+    if (key === 'phone') {
+      formPayload.append('phone', `${formData.countryCode}${formData.phone}`);
+    } else {
+      formPayload.append(key, formData[key]);
     }
+  });
+
+  const response = await fetch(`${API_URL}/api/apply`, {
+    method: 'POST',
+    body: formPayload
+  });
+
+  const data = await response.json();
+  if (!response.ok) throw new Error(data.message || "Submission failed");
+
+  setSubmitted(true);
+  setErrors({});
+
+  setFormData({
+    fullName: '', email: '', countryCode: '+91', phone: '', education: '',
+    role: '', yearOfPassout: '', experience: '', currentCTC: '',
+    expectedCTC: '', location: '', noticePeriod: '', skills: '', resume: null
+  });
+
+  if (fileInputRef.current) fileInputRef.current.value = "";
+
+} catch (error) {
+  alert(error.message);
+} finally {
+  setIsSubmitting(false);  // ✅ VERY IMPORTANT
+}
   };
 
   const inputClass = (name) =>
@@ -508,9 +512,17 @@ export default function JobApplication() {
             </div>
 
             {/* Submit Button */}
-            <button type="submit" className="bg-black text-white py-2 rounded md:col-span-2">
-              Submit Application
-            </button>
+            <button
+  type="submit"
+  disabled={isSubmitting}
+  className={`py-2 rounded md:col-span-2 text-white font-medium transition-all duration-300 ${
+    isSubmitting
+      ? "bg-blue-600 cursor-not-allowed"
+      : "bg-black hover:bg-gray-800"
+  }`}
+>
+  {isSubmitting ? "Submitting..." : "Submit Application"}
+</button>
            
           </form>
 
