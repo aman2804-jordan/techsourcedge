@@ -199,7 +199,7 @@ export default function JobApplication() {
       {/* FORM */}
       <div className="max-w-4xl mx-auto px-4 py-16">
         <div className="bg-white rounded-lg shadow-lg p-8">
-          <h2 className="text-3xl font-bold text-center mb-6">Job Application Form</h2>
+          <h2 className="text-3xl font-bold text-center mb-6">Job Application Formm</h2>
 
           <form onSubmit={handleSubmit} className="grid md:grid-cols-2 gap-5">
 
