@@ -72,6 +72,16 @@ export default function JobApplication() {
     return () => clearInterval(timer);
   }, []);
 
+  useEffect(() => {
+  if (submitted) {
+    const timer = setTimeout(() => {
+      window.location.reload();
+    }, 5000); // 5 seconds
+
+    return () => clearTimeout(timer);
+  }
+}, [submitted]);
+
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
 
