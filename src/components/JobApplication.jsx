@@ -276,12 +276,7 @@ export default function JobApplication() {
         <div className="bg-white rounded-lg shadow-lg p-8">
           <h2 className="text-3xl font-bold text-center mb-6">Job Application Form</h2>
 
-          {submitted && (
-            <div className="mb-6 p-4 bg-green-100 text-green-700 rounded-lg">
-              ✅ Application Submitted Successfully!
-            </div>
-          )}
-
+          
           <form onSubmit={handleSubmit} className="grid md:grid-cols-2 gap-5">
 
             {/* Full Name */}
@@ -516,12 +511,18 @@ export default function JobApplication() {
             <button type="submit" className="bg-black text-white py-2 rounded md:col-span-2">
               Submit Application
             </button>
-
+           
           </form>
 
           <p className="text-xs text-gray-400 text-center mt-4">
             Fields marked with <span className="text-red-500">*</span> are mandatory
           </p>
+          {submitted && (
+            <div className="mb-6 p-4 bg-green-100 text-green-700 rounded-lg">
+              ✅ Application Submitted Successfully!
+            </div>
+          )}
+
         </div>
       </div>
 
