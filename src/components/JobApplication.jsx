@@ -518,7 +518,7 @@ export default function JobApplication() {
             Fields marked with <span className="text-red-500">*</span> are mandatory
           </p>
           {submitted && (
-            <div className="mb-6 p-4 bg-green-100 text-green-700 rounded-lg">
+            <div className="mb-6 p-4 bg-green-100 text-green-700 rounded-lg align-middle mt-4 text-center">
               ✅ Application Submitted Successfully!
             </div>
           )}
