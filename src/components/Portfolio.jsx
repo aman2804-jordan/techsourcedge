@@ -58,7 +58,7 @@ export default function Portfolio() {
 category: "Web Application",
 description: "A community-driven poetry platform where users can share their handwritten shayaris and explore creative expressions from other poets. The platform includes a submission system for new shayaris, an admin moderation panel for content approval, and a beautifully designed interface for reading and discovering poetry.",
 technologies: ["React", "Node.js", "Express.js", "MongoDB", "REST API"],
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
+      image: "../assets/kalamaejazbaaatdp.jpg",
       liveUrl: "https://kalamaejazbaaat.vercel.app/",
       githubUrl: "#",
       stats: {
