@@ -192,7 +192,7 @@ technologies: ["React", "Node.js", "Express.js", "MongoDB", "REST API"],
       }`}
     >
                 {/* Project Image */}
-                <div className="md:w-5/12">  {/* Changed from md:w-1/2 */}
+                <div className="md:w-4/12">  {/* Changed from md:w-1/2 */}
         <img 
           src={project.image} 
           alt={project.title}
