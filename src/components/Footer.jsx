@@ -84,9 +84,16 @@ export default function Footer() {
   </li>
 
   <li className="flex items-center gap-2">
-    <FaMapPin className="text-gray-400 hover:text-red-500 transition text-xl" />
-    <span>IT Park</span>
-  </li>
+  <FaMapPin className="text-gray-400 hover:text-red-500 transition text-xl" />
+  <a 
+    href="https://www.google.com/maps/search/?api=1&query=IT+Park+Gwalior+Madhya+Pradesh"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="hover:text-red-500 transition"
+  >
+    IT Park
+  </a>
+</li>
     <li>Gwalior, Madhya Pradesh</li>
 
     {/* Social Media Icons */}
