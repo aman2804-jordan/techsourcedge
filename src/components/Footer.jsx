@@ -1,5 +1,5 @@
 import React from 'react';
-import footerLogo from "./public/footer-logo.png";
+import footerLogo from "../assets/footer-logo copy.png";
 import { Link } from 'react-router-dom';
 import { FaLinkedinIn, FaInstagram, FaEnvelope, FaMapPin } from "react-icons/fa";
 
