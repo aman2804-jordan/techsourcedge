@@ -26,6 +26,20 @@ export default function Portfolio() {
 
   const projects = [
     {
+      title: "Kalam-e-Jazbaat – Poetry Sharing Platform",
+category: "Web Application",
+description: "A community-driven poetry platform where users can share their handwritten shayaris and explore creative expressions from other poets. The platform includes a submission system for new shayaris, an admin moderation panel for content approval, and a beautifully designed interface for reading and discovering poetry.",
+technologies: ["React", "Node.js", "Express.js", "MongoDB", "REST API"],
+      image: "../assets/kalamaejazbaaatdp.jpg",
+      liveUrl: "https://kalamaejazbaaat.vercel.app/",
+      githubUrl: "#",
+      stats: {
+        accuracy: "94%",
+        dataPoints: "2M+",
+        insights: "Real-time"
+      }
+    },
+    {
       title: "E-Commerce Platform Redesign",
       category: "Web Development",
       description: "Complete redesign and development of a modern e-commerce platform with advanced features including real-time inventory, AI-powered recommendations, and seamless payment integration.",
@@ -52,21 +66,8 @@ export default function Portfolio() {
         rating: "4.8/5",
         downloads: "100K+"
       }
-    },
-    {
-      title: "Kalam-e-Jazbaat – Poetry Sharing Platform",
-category: "Web Application",
-description: "A community-driven poetry platform where users can share their handwritten shayaris and explore creative expressions from other poets. The platform includes a submission system for new shayaris, an admin moderation panel for content approval, and a beautifully designed interface for reading and discovering poetry.",
-technologies: ["React", "Node.js", "Express.js", "MongoDB", "REST API"],
-      image: "../assets/kalamaejazbaaatdp.jpg",
-      liveUrl: "https://kalamaejazbaaat.vercel.app/",
-      githubUrl: "#",
-      stats: {
-        accuracy: "94%",
-        dataPoints: "2M+",
-        insights: "Real-time"
-      }
     }
+    
   ];
 
   const blogs = [
