@@ -54,16 +54,16 @@ export default function Portfolio() {
       }
     },
     {
-      title: "AI-Powered Analytics Dashboard",
-      category: "Data Analytics",
-      description: "Advanced business intelligence dashboard with machine learning algorithms for predictive analytics, real-time data visualization, and automated reporting capabilities.",
-      technologies: ["Python", "TensorFlow", "React", "D3.js", "PostgreSQL"],
+      title: "Kalam-e-Jazbaat – Poetry Sharing Platform",
+category: "Web Application",
+description: "A community-driven poetry platform where users can share their handwritten shayaris and explore creative expressions from other poets. The platform includes a submission system for new shayaris, an admin moderation panel for content approval, and a beautifully designed interface for reading and discovering poetry.",
+technologies: ["React", "Node.js", "Express.js", "MongoDB", "REST API"],
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
-      liveUrl: "#",
+      liveUrl: "https://kalamaejazbaaat.vercel.app/",
       githubUrl: "#",
       stats: {
         accuracy: "94%",
-        dataPoints: "10M+",
+        dataPoints: "1M+",
         insights: "Real-time"
       }
     }
