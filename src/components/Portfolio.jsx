@@ -63,7 +63,7 @@ technologies: ["React", "Node.js", "Express.js", "MongoDB", "REST API"],
       githubUrl: "#",
       stats: {
         accuracy: "94%",
-        dataPoints: "1M+",
+        dataPoints: "2M+",
         insights: "Real-time"
       }
     }
