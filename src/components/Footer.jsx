@@ -122,7 +122,7 @@ export default function Footer() {
 
       <div className="max-w-7xl mx-auto mt-8 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center">
         <p className="text-gray-400 text-sm mb-4 md:mb-0">
-          © {PreviousYear} TECHSOURCEDGE. All rights reserved.
+          © {CurrentYear} TECHSOURCEDGE. All rights reserved.
         </p>
         <div className="flex space-x-6 text-gray-400 text-sm">
           <a href="#" className="hover:text-blue-400 transition">Privacy Policy</a>
