@@ -196,7 +196,7 @@ technologies: ["React", "Node.js", "Express.js", "MongoDB", "REST API"],
         <img 
           src={project.image} 
           alt={project.title}
-          className="w-full h-48 md:h-full object-cover"  /* Changed from h-64 */
+          className="w-full h-56 md:h-72 object-contain bg-gray-100"  /* Changed from h-64 */
         />
       </div>
 
