@@ -61,14 +61,26 @@ export default function Footer() {
 
         <div>
   <h5 className="font-semibold mb-4">Contact</h5>
-  <ul className="space-y-2 text-gray-400">
-    <li className="flex items-center gap-2">
-    <FaEnvelope className="text-gray-400 hover:text-yellow-500 transition text-xl" />
-    <span>info@techsourcedge.com</span>
-  </li>
+<ul className="space-y-2 text-gray-400">
+
   <li className="flex items-center gap-2">
     <FaEnvelope className="text-gray-400 hover:text-yellow-500 transition text-xl" />
-    <span>hr@techsourcedge.com</span>
+    <a 
+      href="mailto:info@techsourcedge.com"
+      className="hover:text-yellow-500 transition"
+    >
+      info@techsourcedge.com
+    </a>
+  </li>
+
+  <li className="flex items-center gap-2">
+    <FaEnvelope className="text-gray-400 hover:text-yellow-500 transition text-xl" />
+    <a 
+      href="mailto:hr@techsourcedge.com"
+      className="hover:text-yellow-500 transition"
+    >
+      hr@techsourcedge.com
+    </a>
   </li>
 
   <li className="flex items-center gap-2">
