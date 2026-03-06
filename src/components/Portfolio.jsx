@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, ExternalLink, Github, Calendar, User, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import kalamImage from "../assets/kalamaejazbaaatdp.jpeg";
 
 
 export default function Portfolio() {
@@ -30,7 +31,7 @@ export default function Portfolio() {
 category: "Web Application",
 description: "A community-driven poetry platform where users can share their handwritten shayaris and explore creative expressions from other poets. The platform includes a submission system for new shayaris, an admin moderation panel for content approval, and a beautifully designed interface for reading and discovering poetry.",
 technologies: ["React", "Node.js", "Express.js", "MongoDB", "REST API"],
-      image: "../assets/kalamaejazbaaatdp.JPEG",
+      image: kalamImage,
       liveUrl: "https://kalamaejazbaaat.vercel.app/",
       githubUrl: "#",
       stats: {
