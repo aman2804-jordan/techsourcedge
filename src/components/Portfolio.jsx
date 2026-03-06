@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, ExternalLink, Github, Calendar, User, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import kalamImage from "../assets/kalamaejazbaaatdp";
+import kalamImage from "../assets/kalamaejazbaaatdp.jpeg";
 
 
 export default function Portfolio() {
