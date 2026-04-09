@@ -416,7 +416,7 @@ return (
             {/* Map */}
             <div className="bg-white rounded-lg shadow-lg overflow-hidden mb-12">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3578.0805034964205!2d78.1499562790266!3d26.259050528703714!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3976c700221dce51%3A0x2bb4c3d78fd7165!2sIT%20PARK!5e0!3m2!1sen!2sin!4v1769761911608!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3580.979576766513!2d78.1514983!3d26.1647946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3976c5002dc5300b%3A0xa50184eddf7996af!2sMahadji%20nagar%20shivpuri%20link%20road%20Gwalior!5e0!3m2!1sen!2sin!4v1775770954112!5m2!1sen!2sin"
                 width="100%"
                 height="400"
                 style={{ border: 0 }}

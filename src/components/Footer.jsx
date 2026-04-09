@@ -79,7 +79,7 @@ export default function Footer() {
       href="mailto:hr@techsourcedge.com"
       className="hover:text-yellow-500 transition"
     >
-      hr@techsourcedge.com
+      techsourcedge@gmail.com
     </a>
   </li>
 
