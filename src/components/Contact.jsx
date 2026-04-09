@@ -239,7 +239,7 @@ return (
     href="mailto:hr@techsourcedge.com"
     className="block text-gray-600 text-sm hover:text-blue-600 transition"
   >
-    hr@techsourcedge.com
+    techsourcedge@gmail.com
   </a>
 </div>
           {/* Phone Card */}
@@ -266,7 +266,7 @@ return (
               <MapPin className="w-8 h-8 text-purple-600" />
             </div>
             <h3 className="font-semibold text-gray-800 mb-2">Visit Us</h3>
-            <p className="text-gray-600 text-sm">IT Park</p>
+            <p className="text-gray-600 text-sm">Shivpuri Link Road</p>
             <p className="text-gray-600 text-sm">Gwalior, Madhya Pradesh</p>
           </div>
 

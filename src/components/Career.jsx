@@ -39,34 +39,34 @@ const slides = [
 
 const jobs = [
   {
-    title: "Snowflake Sr. Developer",
+    title: "Angular Frontend Developer",
     type: "WFO • Full Time",
-    postedDate: "2026-01-07",
+    postedDate: "2026-04-08",
     description:
-      "We're looking for an experienced Snowflake Developer proficient in Snowflake SQL, data engineering, and modern data architecture.",
+      "We're looking for an experienced Angular Developer proficient in Angular, TypeScript, and modern web development practices.",
     requirements: [
-      "6+ years of experience",
-      "Strong Handson and Coding Skills in Snowflake SQL",
+      "7+ years of experience",
+      "Strong Handson and Coding Skills in Angular and TypeScript",
       "Good Communication and Interpersonal Skills",
     ],
   },
   {
-    title: "UI/UX Designer",
-    type: "Hybrid • Full Time",
-    postedDate: "2026-01-05",
+    title: "SAP FICO Consultant",
+    type: "WFO • Full Time",
+    postedDate: "2026-04-01",
     description:
       "Join our design team and create beautiful, user-friendly interfaces for our clients' projects.",
     requirements: [
-      "6+ years experience",
-      "Portfolio showcasing UI/UX work",
-      "Proficiency in Figma/Adobe XD",
-      "Strong Hands-on in Reactjs/JS/CSS/HTML",
+      "3+ years experience",
+      "a strong foundation in finance/controlling (AP, AR, GL, AA)",
+      "configuration experience",
+      "typically with a Bachelor’s/Master’s in Commerce or MBA Finance",
     ],
   },
   {
     title: "International Voice Process",
     type: "On-site • Full Time",
-    postedDate: "2026-01-18",
+    postedDate: "2026-03-09",
     description:
       "Help our clients by involving in managing customer interactions, such as support or sales, for global clients.",
     requirements: ["1+ years International Voice experience", "Ability to work in a fast-paced environment.", "Good Communication and Interpersonal Skills"],
@@ -74,7 +74,7 @@ const jobs = [
   {
     title: "DevOps Engineer",
     type: "Remote • Full Time",
-    postedDate: "2026-01-14",
+    postedDate: "2026-02-27",
     description:
       "Manage and optimize our cloud infrastructure and deployment pipelines.",
     requirements: ["4+ years experience as Devops Engineer","Proficiency in scripting languages like Python, PowerShell, etc", "Proficiency in Docker for packaging applications and Kubernetes for managing containers", "Hands-on experience with CI/CD tools", "Nice to have Certification in cloud platforms like AWS certified DevOps engineer"
@@ -82,22 +82,22 @@ const jobs = [
   },
   {
     title: "JAVA Developer",
-    type: "Hybrid • Part Time",
-    postedDate: "2026-01-10",
+    type: "On-Site • Full Time",
+    postedDate: "2026-04-08",
     description:
       "designs, builds, and maintains high-performance, scalable Java-based applications,",
     requirements: ["5+ years of experience in Java development, with a proven track record in software design.","Design and implement complex Java/J2EE applications, ensuring high reliability and performance.", "Lead technical design discussions, define software architecture, and ensure best practices are followed.", "Deep knowledge of Java 8/11/17, J2EE, and frameworks like Spring Boot, Spring MVC, and Hibernate."],
   },
   {
-    title: "AI/ML Tech Lead",
-    type: "Hybrid • Full Time",
-    postedDate: "2026-01-12",
+    title: "Wordpress Developer",
+    type: "Onsite • Full Time",
+    postedDate: "2026-03-26",
     description:
-      "Bdrives the design, development, and deployment of machine learning and AI-powered systems while mentoring teams of data scientists and engineers.",
-    requirements: [" Generally 5+ years of experience in AI/ML development and engineering.",
-      "Handle technical escalations through effective diagnosis and troubleshooting of client queries",
-      "Manage and resolve technical roadblocks/ escalations as per SLA and quality requirements",
-      "Lead deployment and optimization of AI/ML workflows on cloud platforms (preferably GCP: Vertex AI, BigQuery, Dataflow).",
+      "Experience is typically expected to possess advanced knowledge of WordPress core, custom theme development, and plugin customization. They must be proficient in PHP, MySQL, JavaScript, HTML5, and CSS3, with a strong focus on building responsive, secure, and high-performance WordPress websites. Additionally, they should have experience with version control systems, such as Git, and be familiar with best practices for website optimization and security.",
+    requirements: [" Generally 3+ years of experience in WordPress development and engineering.",
+      "Custom Development: Architect and build custom WordPress themes, plugins, and functionalities from scratch based on project specifications.",
+      "API Integrations: Integrate third-party APIs, CRM tools, and payment gateways (e.g., Stripe, PayPal).",
+      "Security & Maintenance: Implement robust security measures, manage backups, and perform regular updates to protect against threats.",
     ],
   },
 ];
