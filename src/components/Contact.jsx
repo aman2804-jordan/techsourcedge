@@ -229,17 +229,17 @@ return (
   <h3 className="font-semibold text-gray-800 mb-2">Email Us</h3>
 
   <a
-    href="mailto:info@techsourcedge.com"
+    href="mailto:info@techsourcedge.in"
     className="block text-gray-600 text-sm hover:text-blue-600 transition"
   >
-    info@techsourcedge.com
+    info@techsourcedge.in
   </a>
 
   <a
-    href="mailto:hr@techsourcedge.com"
+    href="mailto:hr@techsourcedge.in"
     className="block text-gray-600 text-sm hover:text-blue-600 transition"
   >
-    hr@techsourcedge.com
+    hr@techsourcedge.in
   </a>
 </div>
           {/* Phone Card */}
@@ -256,6 +256,7 @@ return (
     rel="noopener noreferrer"
     className="text-gray-600 text-sm hover:text-green-600 transition font-medium"
   >
+    +91 7000699539
     +91 9111039274
   </a>
 </div>

@@ -24,10 +24,10 @@ export default function About() {
           <div className="bg-gray-50 p-8 rounded-lg shadow-sm">
             <h3 className="text-2xl font-semibold mb-4 text-blue-600">Who We Are</h3>
             <p className="text-gray-700 mb-4">
-              TECHSOURCEDGE is a next-generation startup built with a simple belief: great ideas deserve the right technology, creativity, and execution to succeed.
+              TECHSOURCEDGE IT Solutions is a next-generation startup built with a simple belief: great ideas deserve the right technology, creativity, and execution to succeed.
             </p>
             <p className="text-gray-700">
-              We are a multidisciplinary solutions company focused on delivering innovative technology, creative, and business solutions for startups, enterprises, and individuals. At TechSourcEdge, we combine technology, creativity, and strategy to help businesses build a strong digital presence, streamline operations, and achieve sustainable growth.
+              We are a multidisciplinary solutions company focused on delivering innovative technology, creative, and business solutions for startups, enterprises, and individuals. At Techsourcedge, we combine technology, creativity, and strategy to help businesses build a strong digital presence, streamline operations, and achieve sustainable growth.
             </p>
              <p className="text-gray-700 mb-4">
               Our approach is client-centric and result-driven. We don’t just deliver services—we partner with you to understand your goals, challenges, and vision, and then craft solutions that are practical, scalable, and impactful.
