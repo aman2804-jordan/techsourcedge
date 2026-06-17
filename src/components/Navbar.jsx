@@ -74,7 +74,7 @@ export default function Navbar() {
                     <Link to="/" className="text-white hover:text-blue-300">
   Home
 </Link>
-<Link to="/about" className="text-white hover:text-blue-300">
+<Link to="/abou" className="text-white hover:text-blue-300">
   About
 </Link>
             {/* Services */}
