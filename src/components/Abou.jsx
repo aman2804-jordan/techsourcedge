@@ -10,7 +10,7 @@ const About = () => {
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
         {/* Background Image */}
         <img
-          src="/images/abou.jpg"   // place image in public/images
+          src="/images/abou.png"   // place image in public/images
           alt="About TechSourceEdge"
           className="absolute inset-0 w-full h-full object-cover opacity-70"
         />
