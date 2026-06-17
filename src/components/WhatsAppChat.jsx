@@ -23,7 +23,6 @@ const WhatsAppChat = () => {
       className="whatsapp-chat"
     >
       <FaWhatsapp />
-      <span>Chat with us</span>
     </a>
   );
 };
