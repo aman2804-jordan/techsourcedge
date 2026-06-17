@@ -5,26 +5,31 @@ import "./WhatsAppChat.css";
 const WhatsAppChat = () => {
 
   const phoneNumber = "919111039274"; 
-  // replace with your WhatsApp number
-  // country code included, no + sign
+  // Replace with your WhatsApp number
 
   const message =
     "Hello TechSourceEdge, I want to know more about your services.";
 
-  const whatsappURL = 
+  const whatsappURL =
     `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
 
   return (
+
     <a
       href={whatsappURL}
       target="_blank"
       rel="noopener noreferrer"
-      className="whatsapp-chat"
+      className="whatsapp-icon"
     >
+
       <FaWhatsapp />
+
     </a>
+
   );
+
 };
+
 
 export default WhatsAppChat;
