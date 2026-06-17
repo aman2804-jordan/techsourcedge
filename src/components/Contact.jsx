@@ -257,7 +257,7 @@ return (
     className="text-gray-600 text-sm hover:text-green-600 transition font-medium"
   >
     +91 7000699539
-    +91 9111039274
+    <p>+91 9111039274 </p>
   </a>
 </div>
 
