@@ -1,43 +1,25 @@
-.whatsapp-chat {
+.whatsapp-icon {
 
   position: fixed;
 
-  bottom: 25px;
+  bottom: 50px;
   right: 25px;
 
-  background:#25D366;
+  color: #25D366;
 
-  color:white;
+  font-size: 55px;
 
-  display:flex;
-  align-items:center;
-  gap:10px;
+  z-index: 9999;
 
-  padding:12px 18px;
+  text-decoration: none;
 
-  border-radius:50px;
-
-  font-size:16px;
-
-  text-decoration:none;
-
-  z-index:9999;
-
-  box-shadow:0 5px 20px rgba(0,0,0,0.3);
-
-  transition:0.3s;
-}
-
-
-.whatsapp-chat svg {
-
-  font-size:30px;
+  transition: 0.3s;
 
 }
 
 
-.whatsapp-chat:hover {
+.whatsapp-icon:hover {
 
-  transform:scale(1.05);
+  transform: scale(1.15);
 
 }
