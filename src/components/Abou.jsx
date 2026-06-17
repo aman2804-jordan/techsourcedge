@@ -63,10 +63,7 @@ Our approach is client-centric and result-driven. We don’t just deliver servic
             <li> Content Writing – High-quality content that informs, engages, and converts </li>
             <li>Recruitment Solutions – Connecting the right talent with the right opportunities  </li>
             <li> E-Commerce Services – End-to-end online store setup and optimization </li>
-            <li> Photography – Professional visuals that elevate brand identity </li>
-            <li> Travel & Hospitality Solutions – Digital and creative support for travel brands </li>
-            <li> Sports & Fitness Services – Integrated solutions promoting lifestyle and wellness brands </li>
-            
+            <li> Thesis & Dissertation Writing – We provide professional research, writing, and editorial support for Master's and Ph.D. scholars. </li>
           </ul>
         </div>
 
