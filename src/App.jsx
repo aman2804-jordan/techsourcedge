@@ -1,6 +1,6 @@
-import React from 'react';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 import Navbar from './components/Navbar';
 import Carousel from './components/Carousel';
 import Services from './components/Services';
@@ -11,9 +11,11 @@ import Footer from './components/Footer';
 import Career from './components/Career';
 import Contact from './components/Contact';
 import JobApplication from './components/JobApplication';
-import Portfolio from './components/Portfolio'; 
+import Portfolio from './components/Portfolio';
 import ScrollToTop from './components/ScrollToTop';
 import Abou from './components/Abou';
+import WhatsAppChat from "./components/WhatsAppChat";
+
 
 // Home Page Component
 function HomePage() {
@@ -28,54 +30,156 @@ function HomePage() {
   );
 }
 
+
+
 function App() {
 
-  useEffect(() => 
-    {
-    const disableRightClick = (e) => e.preventDefault();
-    document.addEventListener("contextmenu", disableRightClick);
+
+  // Disable Right Click
+  useEffect(() => {
+
+    const disableRightClick = (e) => {
+      e.preventDefault();
+    };
+
+
+    document.addEventListener(
+      "contextmenu",
+      disableRightClick
+    );
+
 
     return () => {
-      document.removeEventListener("contextmenu", disableRightClick);
+      document.removeEventListener(
+        "contextmenu",
+        disableRightClick
+      );
     };
+
+
   }, []);
 
+
+
+
+  // Disable Inspect / View Source shortcuts
   useEffect(() => {
-  const blockKeys = (e) => {
-    if (
-      e.key === "F12" ||
-      (e.ctrlKey && e.shiftKey && ["I", "J", "C"].includes(e.key)) ||
-      (e.ctrlKey && e.key === "U") ||
-      (e.metaKey && e.altKey && e.key === "I")
-    ) {
-      e.preventDefault();
-    }
-  };
 
-  document.addEventListener("keydown", blockKeys);
-  return () => document.removeEventListener("keydown", blockKeys);
-}, []);
 
-console.log("TEST DEPLOY CHECK");
+    const blockKeys = (e) => {
+
+
+      if (
+        e.key === "F12" ||
+        (e.ctrlKey && e.shiftKey && ["I", "J", "C"].includes(e.key)) ||
+        (e.ctrlKey && e.key === "U") ||
+        (e.metaKey && e.altKey && e.key === "I")
+      ) {
+
+        e.preventDefault();
+
+      }
+
+    };
+
+
+    document.addEventListener(
+      "keydown",
+      blockKeys
+    );
+
+
+    return () => {
+
+      document.removeEventListener(
+        "keydown",
+        blockKeys
+      );
+
+    };
+
+
+  }, []);
+
+
+
+  console.log("TEST DEPLOY CHECK");
+
+
+
   return (
+
     <Router>
+
+
       <div className="min-h-screen bg-gray-50">
+
+
         <Navbar />
-         <ScrollToTop />
+
+
+        <ScrollToTop />
+
+
         <Routes>
-          
-          <Route path="/" element={<HomePage />} />
-          <Route path="/abou" element={<Abou />} />
-           <Route path="/portfolio" element={<Portfolio />} />
-          <Route path="/career" element={<Career />} />
-          <Route path="/contact" element={<Contact />} />
-            <Route path="/apply" element={<JobApplication />} />
+
+
+          <Route 
+            path="/" 
+            element={<HomePage />} 
+          />
+
+
+          <Route 
+            path="/abou" 
+            element={<Abou />} 
+          />
+
+
+          <Route 
+            path="/portfolio" 
+            element={<Portfolio />} 
+          />
+
+
+          <Route 
+            path="/career" 
+            element={<Career />} 
+          />
+
+
+          <Route 
+            path="/contact" 
+            element={<Contact />} 
+          />
+
+
+          <Route 
+            path="/apply" 
+            element={<JobApplication />} 
+          />
+
+
         </Routes>
+
+
+
         <Footer />
+
+
+        {/* WhatsApp Floating Button */}
+        <WhatsAppChat />
+
+
       </div>
+
+
     </Router>
-    
+
   );
+
 }
+
+
 
 export default App;
