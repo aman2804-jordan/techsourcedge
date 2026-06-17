@@ -2,8 +2,8 @@
 
   position: fixed;
 
-  bottom: 50px;
-  right: 25px;
+  bottom: 60px;
+  right: 35px;
 
   color: #25D366;
 
@@ -20,6 +20,6 @@
 
 .whatsapp-icon:hover {
 
-  transform: scale(1.15);
+  transform: scale(1.05);
 
 }
