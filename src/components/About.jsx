@@ -27,13 +27,13 @@ export default function About() {
               TECHSOURCEDGE is a next-generation startup built with a simple belief: great ideas deserve the right technology, creativity, and execution to succeed.
             </p>
             <p className="text-gray-700">
-              We are a multidisciplinary solutions company currently shaping our foundation and gearing up for launch in February. At TechSourcEdge, we combine technology, creativity, and strategy to help businesses, startups, and individuals build a strong digital presence, streamline operations, and grow with confidence.
+              We are a multidisciplinary solutions company focused on delivering innovative technology, creative, and business solutions for startups, enterprises, and individuals. At TechSourcEdge, we combine technology, creativity, and strategy to help businesses build a strong digital presence, streamline operations, and achieve sustainable growth.
             </p>
              <p className="text-gray-700 mb-4">
               Our approach is client-centric and result-driven. We don’t just deliver services—we partner with you to understand your goals, challenges, and vision, and then craft solutions that are practical, scalable, and impactful.
             </p>
             <p className="text-gray-700">
-              From initial consultation to implementation and ongoing support, we partner with you every step of the way, ensuring seamless integration and measurable results that drive your business forward.
+              From initial consultation to implementation and ongoing support, we partner with you every step of the way, ensuring seamless execution,Integrations and solutions that create long-term value and measurable outcomes that drive your business forward.
             </p>
             <Link
     to="/abou"
