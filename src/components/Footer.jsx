@@ -32,7 +32,8 @@ export default function Footer() {
             <li><a href="#services" className="hover:text-blue-400 transition">Software Development</a></li>
             <li><a href="#services" className="hover:text-blue-400 transition">Graphic Designing</a></li>
             <li><a href="#services" className="hover:text-blue-400 transition">Digital Marketing</a></li>
-            <li><a href="#about" className="hover:text-blue-400 transition"></a>Staffing</li>
+            <li><a href="#services" className="hover:text-blue-400 transition">Staffing</a></li>
+            <li><a href="#services" className="hover:text-blue-400 transition">Thesis & Dissertation Writing</a></li>
           </ul>
         </div>
 
@@ -91,7 +92,7 @@ export default function Footer() {
     rel="noopener noreferrer"
     className="hover:text-red-500 transition"
   >
-    IT Park
+    Shivpuri Link Road
   </a>
 </li>
     <li>Gwalior, Madhya Pradesh</li>

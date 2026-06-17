@@ -41,7 +41,7 @@ const jobs = [
   {
     title: "Angular Frontend Developer",
     type: "WFO • Full Time",
-    postedDate: "2026-04-08",
+    postedDate: "2026-05-08",
     description:
       "We're looking for an experienced Angular Developer proficient in Angular, TypeScript, and modern web development practices.",
     requirements: [
@@ -53,7 +53,7 @@ const jobs = [
   {
     title: "SAP FICO Consultant",
     type: "WFO • Full Time",
-    postedDate: "2026-04-01",
+    postedDate: "2026-05-14",
     description:
       "Join our design team and create beautiful, user-friendly interfaces for our clients' projects.",
     requirements: [
@@ -66,7 +66,7 @@ const jobs = [
   {
     title: "International Voice Process",
     type: "On-site • Full Time",
-    postedDate: "2026-03-09",
+    postedDate: "2026-05-03",
     description:
       "Help our clients by involving in managing customer interactions, such as support or sales, for global clients.",
     requirements: ["1+ years International Voice experience", "Ability to work in a fast-paced environment.", "Good Communication and Interpersonal Skills"],
@@ -83,7 +83,7 @@ const jobs = [
   {
     title: "JAVA Developer",
     type: "On-Site • Full Time",
-    postedDate: "2026-04-08",
+    postedDate: "2026-04-28",
     description:
       "designs, builds, and maintains high-performance, scalable Java-based applications,",
     requirements: ["5+ years of experience in Java development, with a proven track record in software design.","Design and implement complex Java/J2EE applications, ensuring high reliability and performance.", "Lead technical design discussions, define software architecture, and ensure best practices are followed.", "Deep knowledge of Java 8/11/17, J2EE, and frameworks like Spring Boot, Spring MVC, and Hibernate."],
@@ -91,7 +91,7 @@ const jobs = [
   {
     title: "Wordpress Developer",
     type: "Onsite • Full Time",
-    postedDate: "2026-03-26",
+    postedDate: "2026-04-16",
     description:
       "Experience is typically expected to possess advanced knowledge of WordPress core, custom theme development, and plugin customization. They must be proficient in PHP, MySQL, JavaScript, HTML5, and CSS3, with a strong focus on building responsive, secure, and high-performance WordPress websites. Additionally, they should have experience with version control systems, such as Git, and be familiar with best practices for website optimization and security.",
     requirements: [" Generally 3+ years of experience in WordPress development and engineering.",

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Images, Code, SquarePen, Users, Smartphone, MonitorCog, WalletMinimal, Monitor, Cloud, Camera } from 'lucide-react';
+import { Images, Code, SquarePen, Users, Smartphone, WalletMinimal, Monitor, Cloud, Camera } from 'lucide-react';
+import { GiOpenBook } from 'react-icons/gi';
 
 
 export default function Services() {
@@ -10,7 +11,7 @@ export default function Services() {
     { icon: SquarePen, title: "Content Writing", desc: "We plan, research, create, and edit web-based material, such as blog posts, articles, and social media, designed to inform, publish, entertain, or persuade a target audience" },
     { icon: Users, title: "IT & ITes Recruitment", desc: "connecting people with the right jobs, and employers with the right people. We are into both IT & Non-IT Recruitment Processes" },
     { icon: Smartphone, title: "Mobile Solutions", desc: "We Develope & Design software to run on smartphones, tablets, and wearable devices, primarily categorized into native (platform-specific), web-based, and hybrid types." },
-    { icon: MonitorCog, title: "Infrastructure", desc: "We Provide the support, management, maintenance, and optimization of an organization's technology foundation—hardware, software, networks, and cloud services" },
+    { icon: GiOpenBook, title: "Thesis & Dissertation Writing", desc: "We provide professional research, writing, and editorial support for Master's and Ph.D. scholars.We ensure academic integrity, 100% original content, and strict confidentiality, delivering polished, defense-ready manuscripts aligned with your institutional deadlines." },
     { icon: WalletMinimal, title: "Payment Gateway", desc: "We Provide secure, cloud-based technology service that acts as an intermediary between an e-commerce website/app and a bank, enabling businesses to authorize, process, and manage digital payments" },
     { icon: Monitor, title: "Software Development", desc: "We design, create, test, and maintain computer programs and applications Provide Tailored software solutions for your business" },
     { icon: Cloud, title: "DevOps", desc: "Set of practices, tools, and a cultural philosophy that automate and integrate the processes between software development and IT Operations teams" }

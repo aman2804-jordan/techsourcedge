@@ -239,7 +239,7 @@ return (
     href="mailto:hr@techsourcedge.com"
     className="block text-gray-600 text-sm hover:text-blue-600 transition"
   >
-    techsourcedge@gmail.com
+    hr@techsourcedge.com
   </a>
 </div>
           {/* Phone Card */}
@@ -276,8 +276,8 @@ return (
               <Clock className="w-8 h-8 text-orange-600" />
             </div>
             <h3 className="font-semibold text-gray-800 mb-2">Business Hours</h3>
-            <p className="text-gray-600 text-sm">Mon - Fri: 9AM - 6PM</p>
-            <p className="text-gray-600 text-sm">Sat - Sun: Closed</p>
+            <p className="text-gray-600 text-sm">Mon - Sat: 9AM - 6PM</p>
+            <p className="text-gray-600 text-sm">Sun: Closed</p>
           </div>
         </div>
       </div>

@@ -33,7 +33,7 @@ const industries = [
     icon: Camera,
   },
   {
-    title: "Photography & Graphics Designing",
+    title: "Graphics Designing",
     description:
       "Enhance your brand identity through compelling visuals and creative design. We deliver professional photography and impactful graphics that communicate your story and leave a lasting impression.",
     image: "/images/Industries/graphic.jpeg",
