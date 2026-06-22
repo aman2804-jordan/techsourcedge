@@ -229,17 +229,17 @@ return (
   <h3 className="font-semibold text-gray-800 mb-2">Email Us</h3>
 
   <a
-    href="mailto:info@techsourcedge.in"
+    href="mailto:info@techsourcedge.com"
     className="block text-gray-600 text-sm hover:text-blue-600 transition"
   >
-    info@techsourcedge.in
+    info@techsourcedge.com
   </a>
 
   <a
-    href="mailto:hr@techsourcedge.in"
+    href="mailto:info@techsourcedge.com"
     className="block text-gray-600 text-sm hover:text-blue-600 transition"
   >
-    hr@techsourcedge.in
+    hr@techsourcedge.com
   </a>
 </div>
           {/* Phone Card */}

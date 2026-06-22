@@ -67,20 +67,20 @@ export default function Footer() {
   <li className="flex items-center gap-2">
     <FaEnvelope className="text-gray-400 hover:text-yellow-500 transition text-xl" />
     <a 
-      href="mailto:info@techsourcedge.in"
+      href="mailto:info@techsourcedge.com"
       className="hover:text-yellow-500 transition"
     >
-      info@techsourcedge.in
+      info@techsourcedge.com
     </a>
   </li>
 
   <li className="flex items-center gap-2">
     <FaEnvelope className="text-gray-400 hover:text-yellow-500 transition text-xl" />
     <a 
-      href="mailto:hr@techsourcedge.in"
+      href="mailto:info@techsourcedge.com"
       className="hover:text-yellow-500 transition"
     >
-      hr@techsourcedge.in
+      hr@techsourcedge.com
     </a>
   </li>
 
